@@ -12,10 +12,18 @@ class MigrateMakeCommand extends Command
         {--path= : The location where the migration file should be created}
         {--realpath : Indicate any provided migration file paths are pre-resolved absolute paths}';
 
-    protected $description = 'Does not create a new migration file';
+    protected $description = 'Create a new migration file by aliasing to make:migration';
 
     public function handle()
     {
-        $this->error("I'm sorry, Dave. I'm afraid I can't do that.");
+      $this->line('Aliasing to make:migration...');
+      $passthru = ['name' => $this->argument('name')];
+
+      foreach ($this->options() as $key => $value) {
+          if ($value) {
+              $passthru['--' . $key] = $value;
+          }
+      }
+      $this->call('make:migration', $passthru);
     }
 }
