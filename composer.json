@@ -1,0 +1,27 @@
+{
+    "name": "chrisforrence/migrate-make",
+    "description": "Helps avoid console errors when attempting to run migrate:make",
+    "authors": [{
+        "name": "Chris Forrence",
+        "email": "chrisforrence@gmail.com",
+        "homepage": "https://chrisforrence.com",
+        "role": "Developer"
+    }],
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "5.7.*",
+        "illuminate/console": "5.7.*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Forrence\\MigrateMake\\MigrateMakeServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Forrence\\MigrateMake\\": "src/"
+        }
+    }
+}
